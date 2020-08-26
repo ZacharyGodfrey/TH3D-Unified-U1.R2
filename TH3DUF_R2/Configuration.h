@@ -2,18 +2,18 @@
 * ************** How to use this firmware - READ THIS, yes actually read this. *********************************
 *
 * Uncomment means removing the 2 // in front of #define.
-* 
+*
 * FLASHING NOTES:
 * ALL slicers (Simplify3D, Cura, Slic3r, etc) or anything else that connects to the COM port must be CLOSED for the firmware to be flash.
 * If anything is connected to the COM port when flashing it will fail, typically "access denied" is listed in the error section of the Arduino IDE.
 * You MUST use the Included Arduino IDE to flash the firmware if on Windows and if you are on a Mac or Linux follow the guide in our knowledgebase to setup your IDE to work with the firmware.
-* 
-* EZABL SETUP NOTES: 
-* If you have EZABL uncomment the mount you are using with the printer. 
-* If you have a custom/unsupported mount uncomment #define CUSTOM_PROBE and enter your offsets 
+*
+* EZABL SETUP NOTES:
+* If you have EZABL uncomment the mount you are using with the printer.
+* If you have a custom/unsupported mount uncomment #define CUSTOM_PROBE and enter your offsets
 * below in the Custom Probe Mount Settings section.
 * Refer to the Custom Probe Mount Settings section below for entering these and how to measure.
-* 
+*
 * STEP 1:
 * Select the correct board from the tools menu for the printer you are flashing.
 * Read the printer title for the model you are flashing, it will show what board to select.
@@ -22,10 +22,10 @@
 * Uncomment the printer you want to flash. The printers are sorted A-Z by brand name.
 * If you are using the Creality Dual board with the Ender 3/Ender 5/CR-20 then read the specific section below in that printer section on how to do this.
 *
-* STEP 3: 
+* STEP 3:
 * Select the COM port your printer is on from the Tools menu. If you do not see the COM port try
 * downloading the latest drivers from the manufacturer or TH3D site on our knowledgebase.
-* 
+*
 * STEP 4:
 * Verify you have the correct board selected, printer model uncommented, and if you are using EZOUT and/or EZABL
 * the lines you need to use them are also uncommented.
@@ -34,19 +34,19 @@
 * Once you have your settings verified click the arrow in the upper left to upload to the board.
 *
 * STEP 6:
-* Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to 
+* Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to
 * Control > Reset EEPROM to clear out the EEPROM to defaults.
 *
 * BOOTLOADER FLASHING NOTES:
 * For flashing your bootloader with an Uno make sure to select Arduino as ISP for the programmer
-* 
+*
 * There are other features in the TH3D Extras section so look there for V6 Hotend,
 * Bootscreen settings, Titan Extruder and more. You only need to edit this file.
-* 
+*
 * ERROR NOTES:
 * If you get errors flashing READ the message it gives you and double check that you selected
 * the correct board from the Tools menu in Arduino. Turn off any AV systems and reboot the computer.
-* 
+*
 * COMMUNITY REQUESTED FEATURES NOTE:
 * All features in the community requested features section are provided as-is with no support from TH3D.
 */
@@ -348,7 +348,7 @@
 //#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts (Ender 2 can use the same mounts as CR-10, Ender 2 Specific mounts minimize distance from probe to nozzle for max probing area)
-// If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support. 
+// If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support.
 // This is because the probeable area on the non-Ender 2 mounts is too small typically to get a good result.
 //#define ENDER2_OEM
 //#define ENDER2_V6
@@ -363,7 +363,7 @@
 //===========================================================================
 // Creality Ender 3/3 Pro Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
-//#define ENDER3
+#define ENDER3
 
 // If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
@@ -389,10 +389,10 @@
 // DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
 // Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
 //
-// To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
+// To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the
 // CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 3 LCD.
 // You will have to force it into the EXP1 but it will fit and work.
-// 
+//
 // EZABL and EZOut support are still supported, just use the lines above this comment section.
 // Ender Xtender options still work, just use the lines above this comment section.
 //=================================================================================================
@@ -456,10 +456,10 @@
 // DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
 // Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
 //
-// To use the Ender 5 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
+// To use the Ender 5 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the
 // CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 5 LCD.
 // You will have to force it into the EXP1 but it will fit and work.
-// 
+//
 // EZABL and EZOut support are still supported just use the lines above this comment section.
 //=================================================================================================
 //#define ENDER5_DUALBOARD
@@ -726,13 +726,13 @@
 // Wanhao i3 Plus Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 // Before compiling copy all files from "\Firmware\ADVi3PPFiles" folder to the
-// "\Firmware\TH3DUF_R2" folder. Once copied the firmware will only work for 
+// "\Firmware\TH3DUF_R2" folder. Once copied the firmware will only work for
 // the Wanhao i3 Plus. If you wish to flash other machines then extract a new
 // copy of the firmware to a different location on your computer.
 //
 // Touch LCD Flashing
-// You MUST flash the LCD firmware with the ADVi3++ 4.0.3 LCD image to use 
-// our firmware with the Wanhao i3 Plus. Get it here: 
+// You MUST flash the LCD firmware with the ADVi3++ 4.0.3 LCD image to use
+// our firmware with the Wanhao i3 Plus. Get it here:
 // How to Flash AVDi3++ LCD: https://community.advi3pp.com/t/how-to-flash/16
 // Touchscreen Guide: https://community.advi3pp.com/t/lcd-touch-screen-guide/20
 //===========================================================================
@@ -957,7 +957,7 @@
 #define CUSTOM_ESTEPS_VALUE 463
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
-// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 0 to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR 
+// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 0 to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR
 //#define MOUNTED_FILAMENT_SENSOR
 
 // If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm
@@ -1023,7 +1023,7 @@
 //#define FAN_FIX
 
 // Use your own printer name
-//#define USER_PRINTER_NAME "CHANGE ME" 
+#define USER_PRINTER_NAME "Zach3D"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
@@ -1060,14 +1060,14 @@
 #define LINEAR_ADVANCE_K 0
 
 // BL TOUCH ----------------------------------------
-// If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 
+// If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section,
 // and then enter your probe offsets in the CUSTOM_PROBE section above. The Pin 27 boards on other ecommerce sites are clones of our original EZOut.
 // If you want to support the people that originally came up with the board you can get our EZOut breakout board here: http://EZOut.TH3DStudio.com
 // Sales from our shop allow us to allocate time for community firmware development at no charge to you. <3
 //#define BLTOUCH
 
-// Here is where you set your servo pin. 
-// EZOut Servo Pin Numbers: 
+// Here is where you set your servo pin.
+// EZOut Servo Pin Numbers:
 // Anet(with 2004LCD)/Ender3/5/CR-10 - 27
 // Anet(with 12864LCD)/Ender 2 - 29
 // For 2560 boards look for the pin you connected the servo wire to and enter below (typically 11).
@@ -1076,11 +1076,11 @@
 // The BL Touch is NOT supported on the Wanhao i3 Plus, use the ADVi3++ Firmware instead if you want to use a BL Touch.
 
 // MANUAL MESH LEVELING ----------------------------
-// If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. 
+// If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe.
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html If used with a 1284P board the bootscreen will be disabled to save space.
 // NOTE: This is not supported on the Wanhao i3 Plus due to the LCD limitations.
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
-//#define MANUAL_MESH_LEVELING
+#define MANUAL_MESH_LEVELING
 
 // POWER LOSS RECOVERY -----------------------------
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
